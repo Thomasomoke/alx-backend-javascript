@@ -42,6 +42,39 @@ function createEmployee(salary: number | string): Director | Teacher {
 	}
 }
 
+interface DirectorInterface {
+  workDirectorTasks(): string;
+}
+
+interface TeacherInterface {
+  workTeacherTasks(): string;
+}
+
+type Employee = DirectorInterface | TeacherInterface;
+
+function isDirector(employee: Employee): employee is DirectorInterface {
+  return (employee as DirectorInterface).workDirectorTasks !== undefined;
+}
+
+function createEmployee(salary: number): Employee {
+  if (salary > 500) {
+    return {
+      workDirectorTasks: () => 'Getting to director tasks',
+    };
+  } else {
+    return {
+      workTeacherTasks: () => 'Getting to work',
+    };
+  }
+}
+
+function executeWork(employee: Employee): void {
+  if (isDirector(employee)) {
+    console.log(employee.workDirectorTasks());
+  } else {
+    console.log(employee.workTeacherTasks());
+  }
+}
 
 
 
