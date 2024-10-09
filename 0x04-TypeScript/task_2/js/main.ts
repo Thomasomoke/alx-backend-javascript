@@ -43,6 +43,8 @@ function createEmployee(salary: number | string): Director | Teacher {
 }
 
 
+
+
 	
 
 
