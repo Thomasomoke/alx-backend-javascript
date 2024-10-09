@@ -1,23 +1,50 @@
-interface student {
-        firstName: string;
-        lastName: string;
-        age: number;
-        location: string;
+interface DirectorInterface {
+	workFromHome(): string;
+	getCoffeeBreak(): string;
+	workDirectorTasks(): string;
 }
 
-const stu1: student = {
-        firstName: 'Thomas',
-        lastName: 'Omoke',
-        age: 23,
-        location: 'Mombasa'
+interface TeacherInterface {
+	workFromHome(): string;
+	getCoffeeBreak(): string;
+	workTeacherTasks(): string;
 }
 
-const stu2: student = {
-        firstName: 'Hillan',
-        lastName: 'Boyani',
-        age: 25,
-        location: 'Nairobi'
+class Director implements DirectorInterface {
+	workFromHome(): string {
+		return "Working from home";
+	}
+
+	getCoffeeBreak():string {
+		return "Getting a coffee break";
+	}
+	workDirectorTasks():string {
+		return "Getting to director tasks";
+	}
+
+class Teacher implements TeacherInterface {
+	workFromHome():string {
+		return "Cannot work from home";
+	}
+	getToWork():string {
+		return "Cannot have a break";
+	}
+	workTeacherTasks():string {
+		return "Getting to work";
+	}
 }
 
-const studentsList: student[] = [ stu1, stu2];
+function createEmployee(salary: number | string): Director | Teacher {
+	if (typeof salary === "number" && salary < 500) {
+		return new Teacher();
+	} else {
+		return new Director();
+	}
+}
+
+
+
+
+	
+
 
