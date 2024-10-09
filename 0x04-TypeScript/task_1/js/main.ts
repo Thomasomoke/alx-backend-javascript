@@ -21,3 +21,9 @@ const director1: Teacher = {
 
 console.log(director1);
 
+function printTeacher{firstName: string, lastName:string}: string {
+	return `${firstNmae[0]} ${lastName}`;
+}
+
+printTeacher("John", "Doe");
+
