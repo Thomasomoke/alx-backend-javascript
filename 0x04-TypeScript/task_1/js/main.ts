@@ -27,3 +27,31 @@ function printTeacher{firstName: string, lastName:string}: string {
 
 printTeacher("John", "Doe");
 
+interface Class {
+	workOnHomework(): string;
+	displayName(): string;
+}
+
+interface Constructor {
+	firstName: string;
+	lastName: string;
+}
+
+class StudentClass implements Class {
+	        firstName: string;
+		lastName: string;
+
+
+	constructor(args: Constructor) {
+		this.firstName = args.firstName;
+		this.lastName = args.lastName;
+		}
+
+		workOnHomework() {
+			return "Currently working";
+		}
+
+		displayName() {
+			return this.firstName;
+		}
+}
