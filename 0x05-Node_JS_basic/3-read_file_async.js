@@ -11,9 +11,6 @@ async function countStudents(path) {
     const lines = data.trim().split('\n');
     const students = {};
 
-    // Assuming the first line is the header
-    const headers = lines[0].split(',');
-
     // Loop through each student line after the header
     lines.slice(1).forEach((line) => {
       const student = line.split(',');
